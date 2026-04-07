@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - HealthCare Logs</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .admin-section { padding: 4rem 2rem; max-width: 1200px; margin: 0 auto; }
+        .admin-table { width: 100%; border-collapse: collapse; margin-top: 1rem; margin-bottom: 3rem; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .admin-table th, .admin-table td { padding: 1rem; text-align: left; border-bottom: 1px solid rgba(0,0,0,0.05); color: #333; }
+        .admin-table th { background: linear-gradient(135deg, var(--primary, #007bff) 0%, var(--primary-dark, #0056b3) 100%); color: white; font-weight: 600; }
+        .admin-table tr:last-child td { border-bottom: none; }
+        body.dark .admin-table { background: #222; box-shadow: 0 4px 6px rgba(0,0,0,0.2); }
+        body.dark .admin-table th, body.dark .admin-table td { border-bottom: 1px solid rgba(255,255,255,0.05); color: #f1f1f1; }
+        .admin-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+        .admin-title { font-size: 2rem; font-weight: 700; color: #333; margin-top: 2rem; margin-bottom: 0.5rem; }
+        body.dark .admin-title { color: #f1f1f1; }
+        .admin-subtitle { color: #666; margin-bottom: 1rem; }
+        body.dark .admin-subtitle { color: #aaa; }
+    </style>
+</head>
+<body>
+<header class="navbar">
+    <div class="nav-inner">
+        <a href="Index.html" class="logo">Health<span>Care</span> Admin</a>
+        <ul class="nav-links">
+            <li><a href="Index.html" class="nav-link">Home Website</a></li>
+            <li><a href="/admin" class="nav-link active">Admin Panel</a></li>
+        </ul>
+        <button class="dark-toggle" onclick="document.body.classList.toggle('dark')">🌙</button>
+    </div>
+</header>
+<section class="admin-section">
+    <div class="admin-header">
+        <h1 class="admin-title" style="margin-top:0;">Admin Dashboard</h1>
+    </div>
+    
+
+
+    <h2 class="admin-title" style="font-size: 1.5rem">📅 Appointment Bookings</h2>
+    <p class="admin-subtitle">Showing the latest 100 booking requests from the homepage.</p>
+    <table class="admin-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Booked Date</th>
+                <th>Requested At (UTC)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for b in bookings %}
+            <tr>
+                <td>{{ b['id'] }}</td>
+                <td><strong>{{ b['full_name'] }}</strong></td>
+                <td><a href="mailto:{{ b['email'] }}">{{ b['email'] }}</a></td>
+                <td>{{ b['booking_date'] }}</td>
+                <td>{{ b['timestamp'] }}</td>
+            </tr>
+            {% else %}
+            <tr><td colspan="5">No bookings yet.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+</section>
+<footer>
+    <span class="footer-logo">HealthCare</span>
+    <p>© 2026 Health Management System. All rights reserved.</p>
+</footer>
+</body>
+</html>

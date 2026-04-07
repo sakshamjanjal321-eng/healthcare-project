@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact — HealthCare</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="navbar">
+    <div class="nav-inner">
+        <a href="Index.html" class="logo">Health<span>Care</span></a>
+        <ul class="nav-links">
+            <li><a href="Index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="servives.html" class="nav-link">Services</a></li>
+            <li><a href="contact.html" class="nav-link active">Contact</a></li>
+        </ul>
+        <button class="dark-toggle" onclick="document.body.classList.toggle('dark')">🌙</button>
+    </div>
+</header>
+<div class="page-banner">
+    <div class="banner-content">
+        <span class="banner-tag">Get In Touch</span>
+        <h1 class="banner-title">We'd love to hear from you</h1>
+        <p class="banner-desc">Have a question, suggestion, or just want to say hello? Send us a message and we'll get back to you within 24 hours.</p>
+    </div>
+    <div>
+        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=700&q=80" alt="Contact" class="banner-img">
+    </div>
+</div>
+<div class="content-section">
+    <div class="contact-layout">
+        <div class="contact-info-col">
+            <div class="contact-info-box">
+                <div class="info-icon-circle">📧</div>
+                <div>
+                    <div class="info-box-label">Email</div>
+                    <div class="info-box-val">support@healthcare.com</div>
+                </div>
+            </div>
+            <div class="contact-info-box">
+                <div class="info-icon-circle">📞</div>
+                <div>
+                    <div class="info-box-label">Phone</div>
+                    <div class="info-box-val">+91 98765 43210</div>
+                </div>
+            </div>
+            <div class="contact-info-box">
+                <div class="info-icon-circle">📍</div>
+                <div>
+                    <div class="info-box-label">Location</div>
+                    <div class="info-box-val">Vadodara, Gujarat, India</div>
+                </div>
+            </div>
+            <div class="contact-info-box">
+                <div class="info-icon-circle">🕐</div>
+                <div>
+                    <div class="info-box-label">Support Hours</div>
+                    <div class="info-box-val">Mon–Sat, 9am – 6pm</div>
+                </div>
+            </div>
+        </div>
+        <div class="contact-form-box">
+            <h3 class="form-title">Send a message</h3>
+            <div class="form-row">
+                <label class="form-label">Your Name</label>
+                <input type="text" class="form-input" placeholder="Enter your name">
+            </div>
+            <div class="form-row">
+                <label class="form-label">Email Address</label>
+                <input type="email" class="form-input" placeholder="Enter your email">
+            </div>
+            <div class="form-row">
+                <label class="form-label">Subject</label>
+                <input type="text" class="form-input" placeholder="What is this about?">
+            </div>
+            <div class="form-row">
+                <label class="form-label">Message</label>
+                <textarea class="contact-textarea" rows="5" placeholder="Type your message here..."></textarea>
+            </div>
+            <button class="send-btn" onclick="this.textContent='Message sent ✓'; this.style.background='var(--sage)';">Send Message</button>
+        </div>
+    </div>
+</div>
+<footer>
+    <span class="footer-logo">HealthCare</span>
+    <div class="footer-links">
+        <a href="Index.html">Home</a><a href="about.html">About</a>
+        <a href="servives.html">Services</a><a href="contact.html">Contact</a>
+    </div>
+    <p>© 2026 Health Management System. All rights reserved.</p>
+</footer>
+</body>
+</html>

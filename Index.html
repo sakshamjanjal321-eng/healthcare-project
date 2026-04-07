@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthCare — Your Wellness Companion</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="navbar">
+    <div class="nav-inner">
+        <a href="Index.html" class="logo">Health<span>Care</span></a>
+        <ul class="nav-links">
+            <li><a href="Index.html" class="nav-link active">Home</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="servives.html" class="nav-link">Services</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+            <li id="nav-login" style="display: none;"><a href="login.html" class="nav-link">Login</a></li>
+            <li id="nav-admin" style="display: none;"><a href="/admin" class="nav-link">Admin Logs</a></li>
+            <li id="nav-logout" style="display: none;"><a href="/logout" class="nav-link">Logout</a></li>
+        </ul>
+        <button class="dark-toggle" onclick="document.body.classList.toggle('dark')">🌙</button>
+
+    </div>
+</header>
+<section class="hero-wrap">
+    <div class="hero-text">
+        <p class="hero-eyebrow">Your Wellness Companion</p>
+        <h1 class="hero-title">Take control of your <em>health</em> every day</h1>
+
+        <div class="appointment-container">
+  <h2>Book Appointment</h2>
+
+  <form action="/book" method="POST">
+    <input type="text" name="full_name" placeholder="Full Name" required>
+    <input type="email" name="email" placeholder="Email Address" required>
+    <input type="date" name="booking_date" required>
+    <button type="submit">Book Now</button>
+  </form>
+</div>
+        
+        
+        <p class="hero-sub">Track your fitness, manage your diet, and monitor your wellness — all in one beautifully simple platform.</p>
+        <a href="about.html" class="hero-cta">Explore the platform →</a>
+    </div>
+    <div class="hero-visual">
+        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80" alt="Healthy lifestyle" class="hero-img">
+        <div class="hero-badge">
+            <div class="badge-num">10K+</div>
+            <div class="badge-label">Active users<br>this month</div>
+        </div>
+    </div>
+</section>
+<section class="cards-section">
+    <p class="cards-label">What would you like to track?</p>
+    <div class="cards-grid">
+        <a href="fitness.html" class="card-item">
+            <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&q=80" alt="Fitness" class="card-img">
+            <div class="card-arrow">→</div>
+            <div class="card-body">
+                <span class="card-tag tag-fitness">Fitness</span>
+                <h2 class="card-title">Workouts & Exercises</h2>
+                <p class="card-desc">Customized training plans for every level — from beginner routines to advanced strength programs.</p>
+            </div>
+        </a>
+        <a href="diet.html" class="card-item">
+            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80" alt="Diet" class="card-img">
+            <div class="card-arrow">→</div>
+            <div class="card-body">
+                <span class="card-tag tag-diet">Diet</span>
+                <h2 class="card-title">Healthy Meal Plans</h2>
+                <p class="card-desc">Nutritionist-crafted meal guides, calorie tracking, and simple food swaps for a balanced diet.</p>
+            </div>
+        </a>
+        <a href="health.html" class="card-item">
+            <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=600&q=80" alt="Health" class="card-img">
+            <div class="card-arrow">→</div>
+            <div class="card-body">
+                <span class="card-tag tag-health">Health</span>
+                <h2 class="card-title">Wellness Tracking</h2>
+                <p class="card-desc">Monitor your vitals, sleep quality, hydration, and mental wellness with our health dashboard.</p>
+            </div>
+        </a>
+    </div>
+</section>
+<footer>
+    <span class="footer-logo">HealthCare</span>
+    <div class="footer-links">
+        <a href="Index.html">Home</a><a href="about.html">About</a>
+        <a href="servives.html">Services</a><a href="contact.html">Contact</a>
+    </div>
+    <p>© 2026 Health Management System. All rights reserved.</p>
+</footer>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('success') === 'true') {
+            alert("Your request sent successfully");
+            // Clean up the URL so it doesn't show again on refresh
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+
+        const bookingForm = document.querySelector('form[action="/book"]');
+        if (bookingForm) {
+            bookingForm.addEventListener('submit', function(e) {
+                e.preventDefault(); // Stop normal form submission and page reload
+                
+                fetch(bookingForm.action, {
+                    method: bookingForm.method,
+                    body: new FormData(bookingForm)
+                }).then(response => {
+                    alert("Your request sent successfully");
+                    bookingForm.reset();
+                }).catch(error => {
+                    console.error('Error:', error);
+                    alert("An error occurred. Please try again.");
+                });
+            });
+        }
+        
+        // Fetch authentication status
+        fetch('/api/auth_status')
+            .then(res => res.json())
+            .then(data => {
+                if(data.is_admin) {
+                    document.getElementById('nav-admin').style.display = 'list-item';
+                    document.getElementById('nav-logout').style.display = 'list-item';
+                } else {
+                    document.getElementById('nav-login').style.display = 'list-item';
+                }
+            })
+            .catch(err => {
+                // If the app is opened as a pure local file or backend is down, default to showing login
+                document.getElementById('nav-login').style.display = 'list-item';
+            });
+    });
+</script>
+</body>
+</html>

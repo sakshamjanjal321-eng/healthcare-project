@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health — HealthCare</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="navbar">
+    <div class="nav-inner">
+        <a href="Index.html" class="logo">Health<span>Care</span></a>
+        <ul class="nav-links">
+            <li><a href="Index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="servives.html" class="nav-link">Services</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <button class="dark-toggle" onclick="document.body.classList.toggle('dark')">🌙</button>
+    </div>
+</header>
+<div class="page-banner">
+    <div class="banner-content">
+        <span class="banner-tag">Health & Wellness</span>
+        <h1 class="banner-title">Know your body. Protect your health.</h1>
+        <p class="banner-desc">Monitor your vital signs, track your sleep and hydration, and stay on top of your overall well-being with our wellness dashboard.</p>
+    </div>
+    <div>
+        <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=700&q=80" alt="Health" class="banner-img">
+    </div>
+</div>
+<div class="content-section">
+    <h2 class="section-heading">Health vitals dashboard</h2>
+    <p class="section-sub">Your key health metrics at a glance</p>
+    <div class="section-divider"></div>
+    <div class="vitals-row">
+        <div class="vital-box">
+            <div class="vital-label">Heart Rate</div>
+            <div class="vital-number">72 <span class="vital-unit">bpm</span></div>
+            <div class="vital-pill pill-ok">Normal</div>
+        </div>
+        <div class="vital-box">
+            <div class="vital-label">Blood Pressure</div>
+            <div class="vital-number">120<span class="vital-unit">/80</span></div>
+            <div class="vital-pill pill-ok">Healthy</div>
+        </div>
+        <div class="vital-box">
+            <div class="vital-label">BMI</div>
+            <div class="vital-number">22.4</div>
+            <div class="vital-pill pill-ok">Normal range</div>
+        </div>
+        <div class="vital-box">
+            <div class="vital-label">Body Temperature</div>
+            <div class="vital-number">98.6 <span class="vital-unit">°F</span></div>
+            <div class="vital-pill pill-ok">Normal</div>
+        </div>
+        <div class="vital-box">
+            <div class="vital-label">Sleep Last Night</div>
+            <div class="vital-number">7.5 <span class="vital-unit">hrs</span></div>
+            <div class="vital-pill pill-warn">Slightly low</div>
+        </div>
+        <div class="vital-box">
+            <div class="vital-label">Daily Steps</div>
+            <div class="vital-number">8,240</div>
+            <div class="vital-pill pill-ok">On track</div>
+        </div>
+    </div>
+</div>
+<div class="content-section">
+    <h2 class="section-heading">Wellness areas</h2>
+    <p class="section-sub">Four key pillars of a truly healthy life</p>
+    <div class="section-divider"></div>
+    <div class="blocks-grid">
+        <div class="info-block">
+            <div class="block-icon icon-purple">🧠</div>
+            <h3 class="block-title">Mental Health</h3>
+            <p class="block-desc">Mental well-being is as important as physical health. Build these habits daily for a calmer, clearer mind.</p>
+            <ul class="block-list">
+                <li>10 minutes of mindfulness meditation</li>
+                <li>Journaling thoughts before bed</li>
+                <li>Limit screen time to 2 hrs/day</li>
+                <li>Connect with family and friends</li>
+                <li>Take breaks every 90 minutes of work</li>
+            </ul>
+        </div>
+        <div class="info-block">
+            <div class="block-icon icon-blue">😴</div>
+            <h3 class="block-title">Sleep Health</h3>
+            <p class="block-desc">Quality sleep is the foundation of recovery, focus, and long-term health. Improve yours tonight.</p>
+            <ul class="block-list">
+                <li>Aim for 7–9 hours every night</li>
+                <li>Sleep and wake at consistent times</li>
+                <li>Avoid caffeine after 3:00 PM</li>
+                <li>Keep your room dark and cool</li>
+                <li>No phone screens 30 min before bed</li>
+            </ul>
+        </div>
+        <div class="info-block">
+            <div class="block-icon icon-green">💧</div>
+            <h3 class="block-title">Hydration</h3>
+            <p class="block-desc">Proper hydration keeps every organ functioning well and energy levels high throughout the day.</p>
+            <ul class="block-list">
+                <li>Drink 8–10 glasses of water daily</li>
+                <li>Start the morning with warm water</li>
+                <li>Drink water before every meal</li>
+                <li>Carry a reusable water bottle</li>
+                <li>Eat water-rich fruits like watermelon</li>
+            </ul>
+        </div>
+        <div class="info-block">
+            <div class="block-icon icon-orange">🧬</div>
+            <h3 class="block-title">Preventive Care</h3>
+            <p class="block-desc">Stay ahead of illness with regular check-ups and smart everyday habits that keep you protected.</p>
+            <ul class="block-list">
+                <li>Annual full body health check-up</li>
+                <li>Dental check every 6 months</li>
+                <li>Eye check-up once a year</li>
+                <li>Blood sugar & cholesterol tests</li>
+                <li>Keep vaccinations up to date</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="content-section">
+    <h2 class="section-heading">BMI Calculator</h2>
+    <p class="section-sub">Find out where your body mass index sits</p>
+    <div class="section-divider"></div>
+    <div class="bmi-wrap">
+        <div class="bmi-inputs">
+            <div>
+                <label class="form-label">Height (cm)</label>
+                <input type="number" class="form-input" id="height" placeholder="e.g. 170">
+            </div>
+            <div>
+                <label class="form-label">Weight (kg)</label>
+                <input type="number" class="form-input" id="weight" placeholder="e.g. 65">
+            </div>
+        </div>
+        <button class="bmi-btn" onclick="calcBMI()">Calculate my BMI</button>
+        <div class="bmi-result" id="bmiResult">
+            <div class="bmi-num" id="bmiScore">--</div>
+            <div class="bmi-verdict" id="bmiLabel">--</div>
+        </div>
+        <div class="bmi-scale">
+            <div class="scale-cell sc-under">Underweight<br>&lt; 18.5</div>
+            <div class="scale-cell sc-normal">Normal<br>18.5–24.9</div>
+            <div class="scale-cell sc-over">Overweight<br>25–29.9</div>
+            <div class="scale-cell sc-obese">Obese<br>≥ 30</div>
+        </div>
+    </div>
+</div>
+<div class="content-section">
+    <h2 class="section-heading">Daily wellness tips</h2>
+    <p class="section-sub">Small daily choices that add up to big health improvements</p>
+    <div class="section-divider"></div>
+    <div class="tips-row">
+        <div class="tip-strip">🌞 Get 15–20 minutes of natural sunlight every morning for vitamin D and mood</div>
+        <div class="tip-strip">🚶 Aim for 7,000–10,000 steps daily — even a short walk after meals counts</div>
+        <div class="tip-strip">🧘 Practice deep belly breathing for 5 minutes when you feel stressed</div>
+        <div class="tip-strip">😄 Laughter genuinely reduces stress hormones and boosts immunity</div>
+        <div class="tip-strip">🥗 Eat a variety of colourful vegetables every day for a wide range of nutrients</div>
+        <div class="tip-strip">📅 Schedule your annual health check-up — prevention is always better than cure</div>
+    </div>
+</div>
+<footer>
+    <span class="footer-logo">HealthCare</span>
+    <div class="footer-links">
+        <a href="Index.html">Home</a><a href="about.html">About</a>
+        <a href="servives.html">Services</a><a href="contact.html">Contact</a>
+    </div>
+    <p>© 2026 Health Management System. All rights reserved.</p>
+</footer>
+<script>
+function calcBMI() {
+    var h = parseFloat(document.getElementById('height').value) / 100;
+    var w = parseFloat(document.getElementById('weight').value);
+    if (!h || !w || h <= 0 || w <= 0) { alert('Please enter valid height and weight.'); return; }
+    var bmi = (w / (h * h)).toFixed(1);
+    var label = '', color = '';
+    if (bmi < 18.5)     { label = 'Underweight'; color = '#4A90D9'; }
+    else if (bmi < 25)  { label = 'Normal weight'; color = '#7A9E5F'; }
+    else if (bmi < 30)  { label = 'Overweight'; color = '#C4904A'; }
+    else                { label = 'Obese range'; color = '#C0392B'; }
+    document.getElementById('bmiScore').textContent = bmi;
+    document.getElementById('bmiScore').style.color = color;
+    document.getElementById('bmiLabel').textContent = label;
+    document.getElementById('bmiLabel').style.color = color;
+    document.getElementById('bmiResult').style.display = 'block';
+}
+</script>
+</body>
+</html>
