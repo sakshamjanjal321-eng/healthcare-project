@@ -35,7 +35,11 @@ You need Python 3 installed on your machine. You can download it from [python.or
 1. **Clone or Download the project** to your local machine.
 2. **Open a terminal** and navigate to the project directory:
    ```bash
+<<<<<<< HEAD
    cd path/to/Health Case
+=======
+   
+>>>>>>> ae7c7d5da59be4ed1e221803e743c769b9e69096
    ```
 3. **Install the required dependencies** (assuming you have `flask` in your requirements):
    ```bash
