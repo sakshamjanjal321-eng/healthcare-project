@@ -1,3 +1,14 @@
+---
+title: Healthcase Project
+emoji: 🏃
+colorFrom: blue
+colorTo: green
+sdk: gradio
+sdk_version: 5.20.0
+app_file: app.py
+pinned: false
+---
+
 # HealthCare - Your Wellness Companion
 
 A simple, beautifully designed wellness application built with Flask (Python) and Vanilla HTML/CSS. This project allows users to learn about health tracking (fitness, diet, wellness) and seamlessly book appointments directly from the website.
