@@ -108,5 +108,10 @@ def auth_status():
     from flask import jsonify
     return jsonify({"is_admin": session.get('is_admin', False)})
 
+@app.route('/reset', methods=['POST'])
+def reset():
+    """Endpoint required by OpenEnv to reset the environment."""
+    return {"status": "ok", "message": "Environment reset successful"}, 200
+
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(debug=True, port=5000, host='0.0.0.0')
