@@ -1,0 +1,67 @@
+name: health_data_env
+version: "1.0.0"
+description: >
+  Healthcare Data Analytics environment. Fix SQL queries related to
+  patient visits and appointment bookings.
+
+author: "Participant"
+tags:
+  - openenv
+  - sql
+  - healthcare
+  - reinforcement-learning
+
+tasks:
+  - {id: task_1, difficulty: easy, description: "Count the total number of bookings in the database."}
+  - {id: task_2, difficulty: easy, description: "Get all distinct IP addresses of visitors."}
+  - {id: task_3, difficulty: medium, description: "Get the full names of all bookings made on '2026-04-12'."}
+  - {id: task_4, difficulty: hard, description: "Find the paths visited by more than 5 visitors."}
+
+observation_space:
+  broken_query:      "string - the broken SQL query"
+  db_schema:         "string - database schema"
+  error_message:     "string - last SQL execution error"
+  task_description:  "string - what the query should do"
+  task_id:           "string - task identifier"
+  difficulty:        "string - easy | medium | hard"
+  attempt_number:    "int - current attempt"
+  max_attempts:      "int - max allowed (5)"
+  feedback:          "string - detailed grader feedback"
+  hint:              "string - hint after 2 failed attempts"
+  expected_columns:  "list - expected output column names"
+  expected_row_count: "int - expected row count"
+
+action_space:
+  sql_query:    "string (required) - corrected SQL query"
+  explanation:  "string (optional) - reasoning"
+
+reward:
+  type: continuous
+  range: [0.001, 0.999]
+  components:
+    - "+0.30 query executes without error"
+    - "+0.20 correct output columns"
+    - "+0.10 correct row count"
+    - "+0.40 all values match (partial credit for partial matches)"
+  penalties:
+    - "score=0.001 if submitting original broken query unchanged"
+    - "score=0.001 if submitting exact duplicate of previous attempt"
+    - "x0.85 if exhausting all 5 attempts without solving"
+
+endpoints:
+  - {path: /, method: GET, description: "Interactive UI"}
+  - {path: /reset, method: POST, description: "Start episode"}
+  - {path: /step, method: POST, description: "Submit SQL fix"}
+  - {path: /state, method: GET, description: "Episode metadata"}
+  - {path: /tasks, method: GET, description: "List all tasks"}
+  - {path: /grader, method: POST, description: "Grade without episode"}
+  - {path: /baseline, method: GET, description: "Oracle baseline scores"}
+  - {path: /health, method: GET, description: "Health check"}
+  - {path: /info, method: GET, description: "Environment info"}
+  - {path: /docs, method: GET, description: "API documentation"}
+
+runtime:
+  framework: FastAPI + OpenEnv
+  python: "3.11"
+  docker: true
+  hf_spaces: true

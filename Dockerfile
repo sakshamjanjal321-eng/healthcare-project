@@ -1,8 +1,12 @@
-FROM python:3.10
+FROM python:3.11-slim
 
 WORKDIR /app
+
+RUN pip install --no-cache-dir openenv-core fastapi "uvicorn[standard]" websockets pydantic openai httpx
+
 COPY . .
 
-RUN pip install -r requirements.txt
+ENV PORT=7860
+EXPOSE 7860
 
-CMD ["python", "inference.py"]
+CMD ["python", "app.py"]
